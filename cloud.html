@@ -1,0 +1,644 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="css/mia.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+
+
+		<div class="slides">
+
+			<section>
+
+				<h2>CLOUD COMPUTING</h2>
+
+				<h3>Indice</h3>
+
+				<ul>
+					<li><a href="#/cloudModels">Modelli Cloud</a></li>
+					<li><a href="#/deployment_models">Deployment Models</a></li>
+
+
+					<li><a href="#/cloud_components">Componenti Cloud </a></li>
+
+					<li><a href="#/cloud_layers">Cloud Layers </a></li>
+
+					<li><a href="#/virtual">Virtualizzazione </a></li>
+
+					<li><a href="#/concetti">Concetti fondamentali </a></li>
+
+
+
+				</ul>
+			</section>
+
+
+
+
+			<section id="cloudModels">
+
+
+				<section id="Models" data-markdown>
+					<textarea data-template>
+						## I 3 modelli fondamentali di servizi cloud
+				
+				
+						- **Infrastructure as a Service** (<a href="#iaas">_IaaS_</a>)  
+						_Noleggio di elaborazione, archiviazione, capacità di rete e altre risorse informatiche fondamentali._  
+						- **Platform as a Service** (<a href="#paas">_PaaS_</a>) 
+						_Distribuire le applicazioni create dal cliente su un cloud_
+						- **Software as a Service** (<a href="#saas">_SaaS_</a>)  
+						 _Utilizzare le applicazioni fornite dal fornitore su una rete_
+								
+						</textarea>
+
+				</section>
+
+
+
+
+				<section id="iaas" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+						### IaaS ###                                  
+						#### _Infrastructure as a Service_
+						[**HOST**]
+							
+						_Modello nel quale vengono messi a disposizione risorse hardware virtualizzate, affinché l’utilizzatore  possa creare e gestire, secondo le proprie esigenze, una propria infrastruttura sul cloud, senza preoccuparsi di dove siano allocate le risorse.  
+						Esempi: Amazon Elastic Cloud Compute (EC2), Amazon Simple Storage Service (S3), Amazon Virtual Private Cloud (VPC), Google Cloud Engine, Google Cloud Storage, ecc._
+				   
+					</textarea>
+
+				</section>
+
+				<section id="paas" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+
+					<textarea data-template>
+						### PaaS ###
+						#### _Platform as a Service_
+						[**BUILD**]
+	
+						_Modello nel quale vengono situati i servizi di piattaforme online, grazie al quale un utente, di
+						solito uno sviluppatore, può effettuare il deployment di applicazioni e servizi web che intende
+						fornire. In questo caso, l’utilizzatore può sviluppare ed eseguire le proprie applicazioni
+						attraverso gli strumenti forniti dal provider, il quale garantisce il corretto funzionamento
+						dell’infrastruttura sottostante.
+						Esempi: Amazon Relational Database Service (RDS), Amazon DynamoDB, Amazon API Gateway, Google Cloud
+						App Engine, Google Cloud SQL, Google Cloud Datastore, ecc._
+	
+	
+	
+						</textarea>
+
+				</section>
+				<section id="saas" data-markdown>
+					<textarea data-template>
+						### SaaS 
+						#### _Software as a Service_
+						[**CONSUME**]
+								
+						_Modello che racchiude applicativi e sistemi software, accessibili da un qualsiasi tipo di dispositivo (computer, smartphone, tablet, ecc.), attraverso il semplice utilizzo di un’interfaccia client. In questo modo, l’utilizzatore non deve preoccuparsi di gestire le risorse e l’infrastruttura, in quanto controllati dal provider che li fornisce.  
+						Esempi: G Suite, Ms Office 365._
+					
+					</textarea>
+
+				</section>
+
+
+				<section id="models_img" data-markdown>
+					<textarea data-template>
+									![servizi_cloud ][sc]
+	
+									[sc]: img/paas.jpg "servizi_cloud"
+									
+						</textarea>
+
+				</section>
+
+
+
+			</section>
+
+
+
+
+			<section id="deployment_models">
+
+
+				<section data-markdown>
+					<textarea data-template>
+					## Modelli di Cloud Deployment
+	
+	
+					Il _**cloud computing**_ può essere classificato in quattro modelli di deployment fondamentali
+					
+					- <a href="#private_cloud">Privato</a> 
+					- <a href="#public_cloud">Pubblico</a> 
+				   
+					- <a href="#hybrid_cloud">Ibrido</a>
+					- <a href="#community_cloud">Community</a>  
+					</textarea>
+
+				</section>
+
+
+				<section id="public_cloud" data-markdown>
+					<textarea data-template>
+						### Cloud Pubblico  (1/2)
+					
+						Il cloud pubblico è forse il più semplice di tutti i deployment cloud. Tramite una rete, un cloud provider distribuisce a più clienti risorse di elaborazione, servizi e piattaforme, sviluppate utilizzando hardware di proprietà del provider stesso, che si occupa anche della gestione. I cloud pubblici hanno sempre un’architettura multi-tenant, con più istanze virtuali in un’unica istanza del software. Ogni tenant, o client, comprende un gruppo di utenti che condividono l’accesso comune all’istanza server con privilegi specifici. I clienti non possiedono i gigabyte di storage in cui i propri dati vengono sottoposti a backup, non gestiscono le operazioni presso la server farm in cui è attivo l’hardware, e non determinano in che modo le loro piattaforme, applicazioni o servizi cloud vengono protetti o gestiti. Se il cliente necessita di maggiori risorse, piattaforme o servizi, corrisponderà a un fornitore di cloud pubblico una tariffa oraria o per byte, per ottenere libero accesso a tali risorse.
+						 
+							</textarea>
+
+				</section>
+
+
+				<section id="private_cloud" data-markdown>
+					<textarea data-template>
+							###  Cloud Privato
+		
+							I cloud privati sono simili a quelli pubblici, ma i sistemi sono destinati a un unico cliente con accesso isolato. Come i cloud pubblici, quelli privati vengono distribuiti tramite ambienti self-service, a volte anche via Internet, ma sono protetti da reti, impostazioni di privacy e sistemi di gestione privati. I cloud privati offrono un ambiente versatile e personalizzabile per l’esecuzione dei carichi di lavoro specifici dell’azienda; sono quindi perfetti per le applicazioni aziendali esistenti il cui funzionamento non è garantito nei cloud pubblici.
+										
+							Rispetto ai server virtuali dedicati (che non sono cloud), i cloud pubblici hanno un’efficienza superiore in termini di capacità, ma non possono competere con le risorse infinite del cloud pubblico. Se necessario, i proprietari di cloud privati possono ottenere più risorse cloud, ma ciò implica l’acquisto di nuovo hardware (**on-premise**), o il noleggio di un’ulteriore infrastruttura privata da un fornitore (**off-premise**); entrambe le opzioni richiedono più tempo e denaro rispetto all’impiego di un cloud pubblico.
+							</textarea>
+				</section>
+				<section id="public_cloud2" data-markdown>
+					<textarea data-template>
+							### Cloud Pubblico  (2/2)
+						
+							I provider di cloud pubblici dispongono di reti estese che (in teoria) consentono ai propri clienti l’accesso illimitato alle risorse. Il cliente versa una tariffa in base al consumo ed ha la possibilità di richiedere risorse aggiuntive. In genere i costi iniziali sono bassi, perché non sono necessari investimenti in soluzioni hardware. I costi d’esercizio possono essere invece meno prevedibili, anche quando i picchi d’utilizzo sono anticipati. Questo è uno dei vantaggi del cloud pubblico: si paga di più solo quando si consuma più potenza di elaborazione.
+										
+							La condivisione delle risorse può invece rappresentare un aspetto negativo. Gli ambienti multi-tenant sono esposti a più rischi in termini di sicurezza; inoltre, il cloud pubblico potrebbe non avere le necessarie caratteristiche di conformità per i carichi di lavoro sensibili, che devono essere isolati. Ecco perché è importante conoscere le proprie responsabilità e distribuire conseguentemente i carichi di lavoro.
+						
+						
+							</textarea>
+
+				</section>
+
+
+
+
+				<section id="hybrid_cloud" data-markdown>
+					<textarea data-template>
+
+						###  Cloud Ibrido (1/2)
+									
+						Il cloud ibrido sfrutta i vantaggi del cloud pubblico e privato. È una combinazione di uno o più ambienti cloud pubblici e privati, orchestrati da un software di gestione e automazione che consente di eseguire la migrazione di carichi di lavoro, risorse, piattaforme e applicazioni tra diversi ambienti. Può includere inoltre infrastruttura on-premise, virtualizzazione tradizionale, server bare-metal e container, elementi che tuttavia devono essere aggiunti insieme ai cloud pubblici e privati. In assenza di un cloud, si parla semplicemente di ambiente ibrido e non di cloud ibrido.
+					  
+						</textarea>
+				</section>
+
+
+				<section id="hybrid_cloud2" data-markdown>
+					<textarea data-template>
+
+						###  Cloud Ibrido  (2/2)
+									   
+						Nel cloud ibrido i singoli ambienti cloud continuano ad essere entità uniche e separate, ma offrono potenziali opzioni di collegamento, integrazione e portabilità tra i cloud. Grazie a questa architettura separata, ma connessa, le aziende possono gestire i carichi di lavoro nel modo più efficace, poiché consente di eseguire i carichi di lavoro critici nel cloud privato, quelli meno sensibili nel cloud pubblico, e di ottenere risorse da ogni ambiente in base alla necessità. Ad esempio, la connessione del cloud privato a un cloud pubblico agevola la scalabilità durante i periodi di picco o di interruzioni prevedibili, perché consente una rapida ridistribuzione dei carichi di lavoro nel cloud pubblico. È possibile ottenere la scalabilità verticale dell’infrastruttura (aggiungendo funzioni di virtualizzazione), e orizzontale (optando per la soluzione cloud più adatta all’utilizzo). È proprio la possibilità di scelta che caratterizza i cloud ibridi, ma la scelta è flessibile solo se lo sono i sistemi di integrazione e automazione che li uniscono.
+	
+						</textarea>
+				</section>
+
+
+				<section id="community_cloud" data-markdown>
+					<textarea data-template>
+
+									### Community Cloud
+	
+									Nel modello cloud community, l'infrastruttura cloud è condivisa da un gruppo con comuni esigenze. 
+									Ad esempio, varie agenzie all'interno del Governo dello Stato operano secondo linee guida simili e quindi possono condividere un cloud.
+									Questo modello è più economico del cloud privato perché il costo è condiviso dagli utenti della Community ed ha un livello più elevato di privacy e di sicurezza.
+						  
+								</textarea>
+				</section>
+				<section id="deployment_img">
+
+					<h3> Modelli di Cloud Deployment</h3>
+					<img src="img/deployment_cloud.jpg" />
+
+
+				</section>
+
+			</section>
+
+			<section id="cloud_components">
+
+
+				<section data-markdown>
+					<textarea data-template>
+										## Componenti Cloud
+	
+										 I componenti fondamentali di una _**piattaforma cloud**_ sono:                        
+																		  
+										- <a href="#applications_component">Applicazioni</a>
+										
+										- <a href="#automation_component">Automazione</a>
+										
+										- <a href="#computing_component">Calcolo</a>
+										
+										- <a href="#networking_component">Networking</a>
+										
+										- <a href="#security_component">Sicurezza</a>
+										
+										- <a href="#storage_component">Storage</a>
+										
+										- <a href="#virtualization_component">Virtualizzazione</a>
+								</textarea>
+
+				</section>
+
+
+				<section id="applications_component" data-markdown>
+					<textarea data-template>
+											### Applicazioni
+	
+											 
+											Il termine applicazione è ampio ma in questo contesto viene utilizzato per indicare le applicazioni utente, 
+											inclusi database, server web, e-mail, big data e altri software aziendali.
+									</textarea>
+
+				</section>
+
+				<section id="automation_component" data-markdown>
+					<textarea data-template>
+												### Automazione
+		 
+												L'automazione gioca un ruolo fondamentale nei moderni servizi cloud. 
+												I sistemi software di automazione operano nel data center di un provider cloud che automatizza la distribuzione e il monitoraggio delle offerte cloud.  
+												
+												Tutto (rete, storage e calcolo) può essere virtualizzato e automatizzato. Ciò rende possibile una rapida implementazione e consente agli utenti di avere il controllo sull'utilizzo del cloud.
+										</textarea>
+
+				</section>
+
+				<section id="computing_component" data-markdown>
+					<textarea data-template>
+													### Calcolo
+	
+													Le risorse di calcolo sono l'elaborazione centrale effettiva di dati e applicazioni su un server fisico o virtualizzato che esegue una varietà di sistemi operativi.             </textarea>
+
+				</section>
+
+
+				<section id="networking_component" data-markdown>
+					<textarea data-template>
+														### Networking
+	
+																	 
+														I servizi cloud di rete includono switching e routing tradizionali, nonché servizi come il bilanciamento del carico, DNS, DHCP e reti private virtuali.            </textarea>
+
+				</section>
+
+
+				<section id="security_component" data-markdown>
+					<textarea data-template>
+															### Sicurezza
+		   
+															Proprio come la sicurezza è una componente fondamentale nei data center privati e aziendali, così è nel cloud.  
+															I fornitori di servizi cloud offrono molti servizi di sicurezza, tra cui firewall, controllo degli accessi, sistemi di rilevamento e prevenzione delle intrusioni e servizi di crittografia.
+													</textarea>
+
+				</section>
+
+
+				<section id="storage_component" data-markdown>
+					<textarea data-template>
+																### Storage
+																   
+																Grandi quantità di dispositivi e _storage area networks_ esistono nel cloud per l'utilizzo da parte dei consumatori di servizi cloud.  
+																I supporti di memorizzazione comuni sono unità a stato solido (SSD) e unità fisiche magnetiche.  
+																I sistemi di archiviazione includono sistemi basati su oggetti, blocchi e file.  
+																Alcuni storage sono ottimizzati per alta disponibilità e durata, e altri sono meno costosi e offrono un'archiviazione a lungo termine.      </textarea>
+
+				</section>
+
+
+				<section id="virtualization_component" data-markdown>
+					<textarea data-template>
+																	### Virtualizzazione
+			 
+																	La virtualizzazione è la capacità di prendere risorse di data center fisici come RAM, CPU, storage e networking e creare una rappresentazione software di tali risorse in offerte cloud su larga scala.  
+	
+																	Queste risorse virtualizzate vengono utilizzate da un hypervisor per l'allocazione a computer virtualizzati o macchine virtuali come vengono comunemente chiamate, per l'elasticità dinamica delle moderne offerte cloud.               </textarea>
+
+				</section>
+
+
+
+			</section>
+
+
+
+
+
+			<section id="cloud_layers">
+
+
+				<section id="layers_index" data-markdown>
+					<textarea data-template>
+									## I livelli risultanti di un sistema cloud
+	
+									E’ possibile descrivere l’architettura di un ambiente di cloud computing modellizzandola in
+									cinque strati: 
+									
+									- <a href="#facility_layer">Facility layer</a>
+									
+									- <a href="#hardware_layer">Hardware layer</a>
+									
+									- <a href="#infrastructure_layer">Infrastructure layer</a>
+									
+									- <a href="#platform_layer">Platform layer</a>
+									
+									- <a href="#application_layer">Application layer</a>
+									
+									
+							</textarea>
+
+				</section>
+
+
+
+
+				<section id="facility_layer" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+									### Facility layer
+	
+									Riscaldamento, ventilazione, climatizzazione, energia, comunicazioni e
+									altri aspetti della pianta fisica comprendono lo strato più basso, lo strato della struttura
+									  
+						</textarea>
+
+				</section>
+
+				<section id="hardware_layer" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+										### Hardware layer  
+	
+										Questo strato è responsabile della gestione delle risorse fisiche della
+										cloud, incluse le macchine fisiche (server), i routers, gli switches e i sistemi di
+										alimentazione e raffreddamento. Lo strato hardware è tipicamente implementato nei
+										data centers. Un data center contiene migliaia di server che sono organizzati in racks.
+										La gestione hardware comprende operazioni di configurazione, realizzazione di
+										infrastrutture fault-tolerant, gestione del traffico di rete e gestione delle risorse.
+							</textarea>
+
+				</section>
+
+				<section id="infrastructure_layer" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+											### Infrastructure layer
+	 
+											Chiamato anche strato di virtualizzazione, questo strato fornisce le
+											risorse fondamentali agli strati di più alto livello, generalmente servizi computazionali,
+											data storage e servizi di rete, attraverso la creazione di pool di memoria e risorse
+											computazionali partizionando le risorse fisiche attraverso tecnologie di virtualizzazione
+											come Xen KVM and VMware. L’infrastructure layer è un componente essenziale del
+											cloud computing, perchè molte caratteristiche chiave, come l’assegnamento dinamico
+											delle risorse, sono disponibili soltanto attraverso il meccanismo di virtualizzazione.
+											  
+								</textarea>
+
+				</section>
+
+				<section id="platform_layer" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+												### Platform layer  
+	
+												Gli utenti di questo strato sono gli sviluppatori, che implementano le loro
+												applicazioni e ne fanno il deploying sulla cloud. Gli infrastructure providers supportano
+												queste operazioni fornendo dei framework di sviluppo che consistono in insiemi di API
+												per facilitare l’interazione con l’ambiente cloud o il cui scopo è quello di minimizzare il
+												peso del deploy delle applicazioni all’interno delle macchine virtuali. Ne sono un
+												esempio i servizi di auto-scaling e load-balancing offerti da Amazon, che si occupano di
+												ottimizzare l’allocazione dinamica delle istanze virtuali in modo trasparente alle
+												applicazioni. In generale gli sviluppatori hanno la possibilità di integrare on-demand
+												questi servizi nelle loro applicazioni.
+												  
+									</textarea>
+
+				</section>
+
+				<section id="application_layer" data-markdown data-separator="-%--" data-separator-vertical="-%-">
+					<textarea data-template>
+													### Application layer  
+	
+													Questo è lo strato con cui interagiscono gli utilizzatori finali, i quali
+													accedono ai servizi offerti attraverso il web. Il deploy di una cloud application viene
+													eseguito sull’infrastruttura offerta da un infrastructure provider in modo che gli
+													sviluppatori possano apportare modifiche al software o aggiungere nuove funzionalità
+													senza che si renda necessaria la distribuzione di update o service pack. A questo livello
+													diventano critici gli aspetti di sicurezza e di qualità del servizio, che vengono regolati
+													attraverso i contratti di Service Level Agreement (SLA).
+													  
+										</textarea>
+
+				</section>
+
+
+
+			</section>
+
+
+
+
+			<section id="virtual">
+
+
+				<section data-markdown>
+					<textarea data-template>
+							## VIRTUALIZZAZIONE
+																		  
+							La virtualizzazione è un processo di separazione delle risorse hardware fisiche in un insieme di risorse virtuali che possono funzionare in modo indipendente come risorsa di calcolo e fornire CPU, RAM, storage e così via personalizzati e dedicati. 
+							Ogni server e le sue risorse vengono creati in un ambiente isolato. Ogni ambiente isolato viene creato a partire da un sistema operativo fisico e dalla configurazione hardware sottostante.  
+							Tali risorse sono chiamate Macchine Virtuali(VM) o istanze.
+										
+							La virtualizzazione si ottiene utilizzando un software di virtualizzazione che mantiene i livelli astratti e virtuali sopra l'hardware fisico. 
+						</textarea>
+
+				</section>
+				<section id="virtual_tipi" data-markdown>
+					<textarea data-template>
+								###  Virtualizzazione  ###
+								####  Classificazione in base al software di virtualizazione  ####
+														
+									
+								- **Classe 1 (_bare metal_)**  
+								Un software di virtualizzazione molto sottile chiamato _**hypervisor**_ è installato direttamente sul server fisico. Il cloud AWS utilizza un hypervisor Xen personalizzato. Gli hypervisor di classe 1 sono più veloci degli hypervisor di classe 2. Esempi di hypervisor di classe 1 sono Xen, OpenStack, Hyper-V e vSphere.
+									
+									
+								- **Classe 2 (_hosted hypervisor_)**  
+								Questi tipi di hypervisor sono installati sopra il sistema operativo di base come Windows o Linux. Esempi di hypervisor di classe 2 sono VMware Workstation, VirtualBox e Virtual PC.       
+							</textarea>
+
+				</section>
+
+				<section id="virtualizzazione_img" data-charset="UTF-8" data-markdown>
+					<textarea data-template>
+								 ###  Virtualizzazione  ###
+								 ####  Confronto fra Hypervisor di tipo 1 e di tipo 2  ####
+	
+	
+								 <img src="img/type-1-hypervisor.png" />
+								 <img src="img/type-2-hypervisor.png" />
+							</textarea>
+
+				</section>
+
+
+				<section id="virtual_metodi" data-markdown>
+					<textarea data-template>
+									###  Virtualizzazione  ###
+									#### Classificazione in base ai metodi di virtualizzazione
+								  
+									- **OS-level**  
+									La macchina host e la VM hanno lo stesso SO e lo stesso _patch level_
+								  
+									- **Software** (_hypervisor_)  
+									  * _Binary translation_:   particolari istruzioni della VMs sono intercettate e rimpiazzate dalle chiamate all'hypervisor
+									  * _Para Virtualization Mode (PVM)_:  Il SO Guest viene modificato.
+									  * _Hardware Assisted Virtual Machine (HVM)_:  Crea un layer astratto tra host e guest. Usa speciali istruzioni della CPU per incrementare le performance
+									- **Emulazione Hardware**  
+									Permette di far girare un SO non supportato come per esempio Android su PC
+								   
+											  </textarea>
+
+				</section>
+
+
+
+			</section>
+
+
+
+			<section id="concetti">
+
+
+				<section data-markdown>
+					<textarea data-template>
+
+								   ##  Concetti del Cloud ##
+								  
+								   - <a href="#high_availability">High Availability</a>
+								   - <a href="#fault_tolerance">Fault Tolerance</a>
+								   - <a href="#scalability">Scalabilità</a>
+								   - <a href="#elasticity">Elasticità</a>
+								   	
+	
+							</textarea>
+
+				</section>
+				<section id="high_availability" data-markdown>
+					<textarea data-template>
+
+									 ###  High Availability ###
+	
+									 La possibilità di raggiungere una risorsa (file, servizio, ecc.) sul cloud da più dispositivi (computer, smartphone, ecc.) e da posizioni diverse (casa, ufficio, ecc.)
+							
+							</textarea>
+
+				</section>
+
+				<section id="fault_tolerance" data-markdown>
+					<textarea data-template>
+
+										 ###  Fault Tolerance ###
+	
+										 La replicazione delle risorse su più server fisici rende bassissima la probabilità di perdita di file o di interruzione di un servizio
+	
+								
+								</textarea>
+
+				</section>
+
+				<section id="scalability" data-markdown>
+					<textarea data-template>
+
+					
+
+								  ###  Scalabilità ###
+	
+								 
+									**Elasticità** e **scalabilità** descrivono il modo in cui l'infrastruttura cloud è in grado di espandersi e ridursi in base al carico di lavoro dinamico effettivo
+									
+									**Scalabilità** significa aggiungere risorse all'istanza esistente (_scale up_) o in parallelo a un'istanza esistente (_scale out_).  
+									La **Scalabilità** è essenziale per raggiungere l'**Elasticità**:
+									
+									- **Scale up (_Vertical Scaling_)**  
+									La modifica del tipo di istanza da piccolo a grande (ovvero la modifica a più memoria o calcolo).
+									Di solito il ridimensionamento viene fatto per ottenere più calcolo e memoria sulla stessa istanza.
+									
+									- **Scale out (_Horizontal Scaling_)**  
+									Posizionare una o più nuove istanze in parallelo all'istanza esistente.
+	
+	
+									</textarea>
+
+				</section>
+
+				<section id="elasticity" data-markdown>
+					<textarea data-template>
+
+												 ###  Elasticità ###
+	
+												 In fisica, l'elasticità può essere definita come la capacità di un materiale di espandersi e ridursi i base alle condizioni esterne.  
+												 Allo stesso modo, nell'infrastruttura cloud, l'elasticità può essere definita come la capacità di fornire automaticamente risorse aggiuntive per soddisfare l'elevata domanda e ridurre il numero esteso di risorse quando la domanda diminuisce.
+										
+										</textarea>
+
+				</section>
+
+
+			</section>
+
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			width: 1440,
+			height: 900,
+			slideNumber: true,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.02,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0.2,
+			maxScale: .8,
+			//	 parallaxBackgroundSize: '2100px 2900px', // CSS syntax, e.g. "2100px 900px"
+			// parallaxBackgroundVertical: 100,
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			//  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
